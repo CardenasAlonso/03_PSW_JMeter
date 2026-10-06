@@ -34,11 +34,11 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
                     bat """
-                        mvn sonar:sonar ^
-                          -Dsonar.host.url=https://sonarcloud.io ^
-                          -Dsonar.organization=cardenasalonso ^
-                          -Dsonar.projectKey=CardenasAlonso_03_PSW_JMeter ^
-                          -Dsonar.token=%SONAR_TOKEN%
+                        mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar ^
+                        -Dsonar.host.url=https://sonarcloud.io ^
+                        -Dsonar.organization=cardenasalonso ^
+                        -Dsonar.projectKey=CardenasAlonso_03_PSW_JMeter ^
+                        -Dsonar.token=%SONAR_TOKEN%
                     """
                 }
             }
